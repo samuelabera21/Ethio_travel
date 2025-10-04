@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethio Travel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            color: #2c3e50;
+        }
+
+        header {
+            background: url('flaggs.jpg') no-repeat center center/cover;
+            height: 500px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .book-now {
+            background-color: #f4e1d2;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+        }
+
+        .learn-more {
+            background-color: #f4e1d2;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .product,
+        .service-item,
+        .course-item {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .product img,
+        .service-item img,
+        .course-item img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+
+        .add-to-cart,
+        .enroll {
+            background-color: #34495e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Combined Booking & Subscription Section */
+        .booking-subscription-section {
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            text-align: center;
+        }
+
+        .booking-subscription-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .booking-subscription-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .booking-subscription-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .booking-subscription-content p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .booking-subscription-actions {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .booking-form,
+        .subscribe-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+        }
+
+        .booking-form h3,
+        .subscribe-form h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .booking-form select,
+        .subscribe-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .booking-form button,
+        .subscribe-form button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .booking-form button:hover,
+        .subscribe-form button:hover {
+            background-color: #34495e;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 20px;
+            text-align: center;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+            text-align: left;
+            color: white;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #34495e;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-column input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .footer-column button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .language-select {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            color: #2c3e50;
+            width: 350px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .modal-content a {
+            color: #2c3e50;
+            text-decoration: underline;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .booking-subscription-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .booking-form,
+            .subscribe-form {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-image {
+                width: 100%;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+        }
+
+        .add-to-cart a {
+            color: white;
+            /* Make text white */
+            text-decoration: none;
+            /* Remove underline */
+            display: inline-block;
+            /* Ensures padding/margins work if needed */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#shop">Shop</a>
+            <a href="#course">Course</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="javascript:void(0)" onclick="openModal('login')">Sign In</a>
+            <select class="language-select" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="am">Amharic</option>
+            </select>
+            <!-- <button class="book-now">Book now</button> -->
+            <!-- <a href="details.html"><button class="learn-more">Learn more</button></a> -->
+            <a href="shop.html"><button class="book-now">Book now</button></a>
+
+        </nav>
+        <div class="hero-text">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Adventure awaits around every corner! Whether you're dreaming of sun-soaked beaches or hidden mountain
+                trails, your next unforgettable journey is just a booking away. Pack your bags and let the fun begin!
+            </p>
+            <!-- <button class="learn-more">Learn more</button> -->
+            <a href="details.html"><button class="learn-more">Learn more</button></a>
+
+        </div>
+    </header>
+
+
+    <!-- Modal for Login and Registration -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="loginForm">
+                <h2>Sign In</h2>
+                <input type="text" placeholder="Username" id="loginUsername">
+                <input type="password" placeholder="Password" id="loginPassword">
+                <button onclick="alert('Login functionality not implemented')">Sign In</button>
+                <a onclick="showRegisterForm()">Create Account</a>
+            </div>
+            <div id="registerForm" style="display: none;">
+                <h2>Create Account</h2>
+                <input type="text" placeholder="Username" id="registerUsername">
+                <input type="email" placeholder="Email Address" id="registerEmail">
+                <input type="password" placeholder="Password" id="registerPassword">
+                <input type="password" placeholder="Confirm Password" id="confirmPassword">
+                <button onclick="alert('Registration functionality not implemented')">Create Account</button>
+                <a onclick="showLoginForm()">Back to Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="services" class="section">
+        <h2>our Services</h2>
+        <div class="service-item">
+            <img src="medium.jpg" alt="Basic Service">
+            <p>Experience Hospitality, the Ethiopian Way.</p>
+        </div>
+        <div class="service-item">
+            <img src="cultural_travel.jpg" alt="Intermediate Service">
+            <p>Celebrating Ethiopia, One Journey at a Time.</p>
+        </div>
+        <div class="service-item">
+            <img src="dignity.jpg" alt="Advanced Service">
+            <p>Travel with Heart, Discover with Pride.</p>
+        </div>
+        <div class="service-item">
+            <img src="train.jpg" alt="Advanced+ Service">
+            <p>Where Every Guest Feels at Home.</p>
+        </div>
+    </section>
+
+    <section id="shop" class="section">
+        <h2>We are Ethiopian</h2>
+        <div class="product">
+            <img src="coffffffff.jpg" alt="Ethiopian Coffee">
+            <p>Ethiopian Coffee</p>
+            <button class="add-to-cart"><a href="more.html">wiew more</a></button>
+            <!-- <a href="cart.html"> add to cart</a> -->
+        </div>
+        <div class="product">
+            <img src="ethiobarley.jpg" alt="Ethio Golden Barley">
+            <p>Ethio Golden Barley</p>
+            <button class="add-to-cart"><a href="more.html">view more</a></button>
+            <!-- <a href="cart.html"> add to cart</a> -->
+        </div>
+        <div class="product">
+            <img src="ox.jpg" alt="Ethiopian Ox">
+            <p>Ethiopian Ox</p>
+            <button class="add-to-cart"><a href="more.html">view more</a></button>
+            <!-- <a href="cart.html"> add to cart</a> -->
+        </div>
+    </section>
+
+    <section id="course" class="section">
+        <!-- <h2>Course</h2> -->
+        <div class="course-item">
+            <img src="ethiocar.jpg" alt="Travel Basics">
+            <p>Every Path Tells a Story of Ethiopia.</p>
+            <!-- <button class="enroll">Enroll</button> -->
+        </div>
+        <div class="course-item">
+            <img src="rular.jpg" alt="Advanced Travel">
+            <p>Journey Through Ethiopia, Beyond the Cities.</p>
+            <!-- <button class="enroll">Enroll</button> -->
+        </div>
+
+
+
+        <div class="course-item">
+            <img src="wow.jpg" alt="Advanced Travel">
+            <p>Discover Ethiopia’s Heart in Every Village.</p>
+            <!-- <button class="enroll">Enroll</button> -->
+        </div>
+
+
+        <div class="course-item">
+            <img src="rruull.jpg" alt="Advanced Travel">
+            <p>Where Tradition Meets Timeless Landscapes.</p>
+            <!-- <button class="enroll">Enroll</button> -->
+        </div>
+
+
+
+    </section>
+
+    <section id="about" class="section about-section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Ethiopia is a land where history and culture intertwine to create a vibrant tapestry of traditions,
+                    music, and art. From the ancient churches of Lalibela to the colorful markets of Addis Ababa, every
+                    corner of our nation tells a story of resilience and creativity. Our communities cherish
+                    hospitality, respect, and shared values, offering visitors a glimpse into a culture that celebrates
+                    both individuality and togetherness. Through every festival, ritual, and family gathering, the
+                    spirit of Ethiopia shines brightly, inviting the world to experience our unique way of life.</p>
+
+
+                <br>
+                <br>
+                <br>
+                <p>Rooted in freedom, dignity, and pride, Ethiopia stands as a testament to enduring heritage and human
+                    spirit. Our people embrace challenges with courage, honor their ancestors, and carry forward
+                    traditions that have shaped generations. Traveling through our lands, one discovers not only
+                    breathtaking landscapes but also the unwavering pride and integrity of a nation that treasures
+                    liberty and respects all who enter its heart. At Ethio Travel, we are committed to sharing
+                    this journey, allowing every visitor to experience the soul of Ethiopia in its most authentic form.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="flaggs.jpg" alt="Ethiopian Landscape">
+            </div>
+        </div>
+    </section>
+
+    <!-- Combined Booking & Subscription Section -->
+    <section class="booking-subscription-section">
+        <div class="booking-subscription-content">
+            <h2>Plan Your Adventure</h2>
+            <p>Ready to jet-set and make new memories? Book your next adventure with us and let the fun begin! Stay
+                updated with our latest offers and travel tips by subscribing to our newsletter.</p>
+
+            <div class="booking-subscription-actions">
+                <div class="booking-form">
+                    <h3>Book Your Trip</h3>
+                    <select>
+                        <option>Select Appointment</option>
+                        <option>Free Consultation - 30 minutes</option>
+                        <option>Basic Service - 1 hour  99.00 ETB</option>
+                        <option>Advanced Service - 1 hour  199.00ETB</option>
+                    </select>
+                    <button>BOOK NOW</button>
+                </div>
+
+                <div class="subscribe-form">
+                    <h3>Stay Updated</h3>
+                    <input type="email" placeholder="Email Address">
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section"
+        style="background: linear-gradient(135deg, #95a5a6, #7f8c8d); padding: 60px 20px;">
+        <h2>Contact Us</h2>
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+            <div style="text-align: left; flex: 1; min-width: 250px; color: white;">
+                <p><strong>Email:</strong> info@ethiotravel.com</p>
+                <p><strong>Phone:</strong> +251 911 123 456</p>
+                <p><strong>Address:</strong> Addis Ababa, Ethiopia</p>
+            </div>
+            <div
+                style="flex: 2; min-width: 300px; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h3>Get in Touch</h3>
+                <form style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" placeholder="Your Name"
+                        style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <input type="email" placeholder="Your Email"
+                        style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <textarea placeholder="Your Message"
+                        style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px; resize: vertical;"></textarea>
+                    <button type="submit"
+                        style="background-color: #2c3e50; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Send
+                        Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>Ethio Travel</h3>
+            <p>Your premier destination for Ethiopian culture and adventure.</p>
+        </div>
+        <div class="footer-column">
+            <h3>Explore</h3>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#shop">Shop</a>
+            <a href="#services">Services</a>
+        </div>
+        <div class="footer-column">
+            <h3>Follow us</h3>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="footer-column">
+            <h3>Newsletter</h3>
+            <p>Sign up with your email address to receive news and updates.</p>
+            <input type="email" placeholder="Email Address">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+
+    <script>
+        function changeLanguage() {
+            const lang = document.querySelector('.language-select').value;
+            alert(`Language changed to ${lang}`);
+            // Add language switching logic here
+        }
+
+        function openModal(formType) {
+            const modal = document.getElementById('authModal');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            modal.style.display = 'flex';
+            if (formType === 'login') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('authModal').style.display = 'none';
+        }
+
+        function showRegisterForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('authModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

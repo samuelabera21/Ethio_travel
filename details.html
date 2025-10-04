@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Adventures in Ethiopia - Ethio Travel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            color: #2c3e50;
+        }
+        header {
+            background: url('flaggs.jpg') no-repeat center center/cover;
+            height: 300px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-right: 15px;
+            padding: 10px 15px;
+            background-color: rgba(44, 62, 80, 0.7);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(44, 62, 80, 0.9);
+        }
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .video-container iframe {
+            width: 560px;
+            height: 315px;
+            max-width: 100%;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Back to Home</a>
+        </nav>
+        <div class="hero-text">
+            <h1>Explore Ethiopia's Adventures</h1>
+        </div>
+    </header>
+
+    <section class="section" style="background-color: #95a5a6; color: white;">
+        <h2>Top Adventure Destinations and Activities</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://d2g6byanrj0o4m.cloudfront.net/images/47037/simien_mountains_scenery__banner.jpg" alt="Simien Mountains">
+                <h3>Simien Mountains Trekking</h3>
+                <p>Experience breathtaking hikes in the "Roof of Africa" with dramatic landscapes, endemic wildlife like Gelada baboons, and peaks over 4,000m. Perfect for multi-day treks with local guides.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.theatlantic.com/media/img/photo/2018/04/travel-monday-a-photo-trip-to-ethio/d01_587136776-1/original.jpg" alt="Danakil Depression">
+                <h3>Danakil Depression Exploration</h3>
+                <p>One of the hottest places on Earth, featuring colorful sulfur springs, salt flats, and active volcanoes like Erta Ale. An extreme adventure for the bold traveler.</p>
+            </div>
+            <div class="card">
+                <img src="https://whc.unesco.org/uploads/thumbs/site_0018_0016-1200-630-20151104173458.jpg" alt="Lalibela Rock-Hewn Churches">
+                <h3>Lalibela Rock-Hewn Churches</h3>
+                <p>Discover the UNESCO-listed medieval churches carved from rock. Combine history with adventure by exploring hidden passages and surrounding trails.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.researchgate.net/publication/336020565/figure/fig2/AS:806913134563328@1569394491317/The-Ethiopian-wolf-at-Bale-Mountain-National-Park-Photo-with-permission.jpg" alt="Bale Mountains National Park">
+                <h3>Bale Mountains National Park</h3>
+                <p>Home to rare Ethiopian wolves and diverse birdlife. Ideal for hiking, horseback riding, and spotting endemic species in alpine meadows and forests.</p>
+            </div>
+            <div class="card">
+                <img src="https://imgix.brilliant-ethiopia.com/Omo-body-paint-WE.jpg?auto=format,enhance,compress&fit=crop&crop=entropy,faces,focalpoint&w=580&h=480&q=40" alt="Omo Valley Tribal Visits">
+                <h3>Omo Valley Tribal Visits</h3>
+                <p>Immerse in indigenous cultures with fly camping, river rafting, and encounters with tribes like the Mursi and Hamar in this remote region.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.tripsavvy.com/thmb/gva405IAxMKFp0zZCcAXD5l_JYs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-125209073-92bba8581c254d6eab6d7c78de02d210.jpg" alt="Blue Nile Gorge and Falls">
+                <h3>Blue Nile Gorge and Falls</h3>
+                <p>Hike to stunning waterfalls, explore caves, and enjoy scenic views of the gorge. Great for day trips from Addis Ababa with wildlife spotting.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Adventure Videos</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/qrRQKW2-HRY" title="Top 10 Places To Visit in Ethiopia" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/2xW9mTStyhM" title="Journey Through Ethiopia" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/dv7C2EGJnmo" title="Epic Road Trip to Ethiopia's Omo Valley" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/BNrxduiZVXA" title="The Ultimate ETHIOPIAN Experience" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #95a5a6; color: white;">
+        <h2>Photo Gallery</h2>
+        <div class="gallery">
+            <img src="https://media.istockphoto.com/id/672077498/photo/panorama-of-semien-mountains-and-valley-around-lalibela-ethiopia.jpg?s=612x612&w=0&k=20&c=PTlFhzDQZ0K8gPEOc-kqBlQ_MWn-jRgNCP8qTMCDKew=" alt="Ethiopian Landscape 1">
+            <img src="https://media.istockphoto.com/id/1280111094/photo/ethiopian-landscape-ethiopia-africa-wilderness.jpg?s=170667a&w=0&k=20&c=u0WvhPIXn7vbge5aSwqe2AyEHtvOnQKjRdZjZCLEbyM=" alt="Ethiopian Landscape 2">
+            <img src="https://www.shutterstock.com/image-photo/man-looking-out-beautiful-landscape-260nw-1472404304.jpg" alt="Ethiopian Landscape 3">
+            <img src="https://get.pxhere.com/photo/ethiopia-mountain-nature-sky-yellow-happy-cloud-tree-mountain-range-photography-cool-tourism-travel-landscape-hill-world-adventure-racing-recreation-plant-alps-adventure-1602474.jpg" alt="Ethiopian Landscape 4">
+            <img src="https://media.istockphoto.com/id/163639070/photo/a-large-and-wide-mountain-range-in-ethiopia.jpg?s=612x612&w=0&k=20&c=Cm_PcdHLtA5jnFdUN4r4JF9lbmQxJ7DmzVsjU0IGgy0=" alt="Ethiopian Landscape 5">
+            <img src="https://t3.ftcdn.net/jpg/02/50/38/34/360_F_250383487_frjPMKlp6wyP04n16FFJcSCD0ICADLHj.jpg" alt="Ethiopian Landscape 6">
+            <img src="https://thumbs.dreamstime.com/b/ethiopian-landscape-ethiopia-africa-wilderness-beautiful-highland-valley-afar-region-near-city-mekelle-222150353.jpg" alt="Ethiopian Landscape 7">
+            <img src="https://media.istockphoto.com/id/846640116/photo/aerial-view-to-mago-national-park-omo-valley-etiopia.jpg?s=612x612&w=0&k=20&c=zArCIDGpm5KYMvPMS5uVYoQ5UYH0gzBQM5NOa1UCWw8=" alt="Ethiopian Landscape 8">
+            <img src="https://media.gettyimages.com/id/1303735678/photo/group-of-happy-african-children-east-africa.jpg?s=612x612&w=gi&k=20&c=XfiSTVxFryIvuTXEwuST5-TIVj-u3QOIiPKhs5g3kUU=" alt="Ethiopian Landscape 9">
+            <img src="https://t4.ftcdn.net/jpg/01/25/09/25/360_F_125092592_cXZ6yVRX4Q7nVRETvGrbYdNjqcpyud3M.jpg" alt="Ethiopian Landscape 10">
+        </div>
+    </section>
+
+</body>
+</html>

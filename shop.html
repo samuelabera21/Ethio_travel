@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Adventure - Ethio Travel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            color: #2c3e50;
+        }
+        header {
+            background: url('flaggs.jpg') no-repeat center center/cover;
+            height: 300px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .card p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        .card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 10px 0;
+        }
+        .card button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .card button:hover {
+            background-color: #34495e;
+        }
+        .video-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .additional-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .additional-images img {
+            width: 48%;
+            height: auto;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+            .additional-images {
+                flex-direction: column;
+            }
+            .additional-images img {
+                width: 100%;
+            }
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-right: 15px;
+            padding: 10px 15px;
+            background-color: rgba(44, 62, 80, 0.7);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(44, 62, 80, 0.9);
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.7);
+            transition: transform 0.3s;
+        }
+        
+        .popup-overlay.active .popup {
+            transform: scale(1);
+        }
+        
+        .popup h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .popup p {
+            margin-bottom: 20px;
+        }
+        
+        .popup button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        .popup button:hover {
+            background-color: #219955;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Back to Home</a>
+        </nav>
+        <div class="hero-text">
+            <h1>Book Your Adventure Now</h1>
+        </div>
+    </header>
+
+    <section class="section" style="background-color: #95a5a6; color: white;">
+        <h2>Our Services</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=350" alt="Basic Service">
+                <h3>Basic Service</h3>
+                <p>Our entry-level package includes guided tours to popular Ethiopian sites, basic accommodations, and transportation. Ideal for first-time visitors wanting a taste of adventure without complexity.</p>
+                <div class="price">€99.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/qrRQKW2-HRY" title="Ethiopia Travel Guide" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Ethiopia-landscape-3-1200x852.jpg" alt="Landscape 1">
+                    <img src="https://www.tboacademy.com/blog/wp-content/uploads/2024/08/Ethiopia-min.jpg" alt="Landscape 2">
+                </div>
+                <button class="add-to-cart-btn">Book Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=350" alt="Advanced Service">
+                <h3>Advanced Service</h3>
+                <p>Premium experiences with luxury stays, private guides, and exclusive access to remote areas. Includes adventure sports and in-depth cultural engagements.</p>
+                <div class="price">€199.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dv7C2EGJnmo" title="Omo Valley Adventure" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://skyticket.com/guide/wp-content/uploads/2017/10/iStock-672077498.jpg" alt="Landscape 4">
+                    <img src="https://cdn.adventure-life.com/10/91/28/iStock-497947897/1300x820.webp" alt="Landscape 5">
+                </div>
+                <button class="add-to-cart-btn">Book Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=350" alt="Advanced+ Service">
+                <h3>Advanced+ Service</h3>
+                <p>Ultimate luxury with helicopter tours, VIP access, and personalized adventures. Tailored for high-end travelers seeking the pinnacle of Ethiopian exploration.</p>
+                <div class="price">€249.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/BNrxduiZVXA" title="Ultimate Ethiopian Experience" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Ethiopia-landscape-3-1200x852.jpg" alt="Landscape 1">
+                    <img src="https://www.tboacademy.com/blog/wp-content/uploads/2024/08/Ethiopia-min.jpg" alt="Landscape 2">
+                </div>
+                <button class="add-to-cart-btn">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Our Courses</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=350" alt="Travel Basics">
+                <h3>Travel Basics</h3>
+                <p>Learn essential travel skills, from packing tips to cultural etiquette in Ethiopia. Ideal for beginners preparing for their first trip.</p>
+                <div class="price">€50.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/qrRQKW2-HRY" title="Travel Basics Guide" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://www.gokite.travel/wp-content/uploads/schema-and-structured-data-for-wp/10-Must-See-Places-to-Visit-in-Ethiopia-1200x900.webp" alt="Course Image 1">
+                    <img src="https://absoluteethiopia.com/wp-content/uploads/2019/05/blue-nile-falls.jpg" alt="Course Image 2">
+                </div>
+                <button class="add-to-cart-btn">Enroll Now</button>
+            </div>
+             <div class="card">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=350" alt="Travel Basics">
+                <h3>Travel Basics</h3>
+                <p>Learn essential travel skills, from packing tips to cultural etiquette in Ethiopia. Ideal for beginners preparing for their first trip.</p>
+                <div class="price">€50.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/qrRQKW2-HRY" title="Travel Basics Guide" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://www.gokite.travel/wp-content/uploads/schema-and-structured-data-for-wp/10-Must-See-Places-to-Visit-in-Ethiopia-1200x900.webp" alt="Course Image 1">
+                    <img src="https://absoluteethiopia.com/wp-content/uploads/2019/05/blue-nile-falls.jpg" alt="Course Image 2">
+                </div>
+                <button class="add-to-cart-btn">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=350" alt="Advanced Travel">
+                <h3>Advanced Travel</h3>
+                <p>Dive deeper into adventure planning, survival skills, and advanced cultural immersion techniques for seasoned travelers.</p>
+                <div class="price">€100.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2xW9mTStyhM" title="Advanced Travel Tips" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://skyticket.com/guide/wp-content/uploads/2017/10/iStock-672077498.jpg" alt="Course Image 3">
+                    <img src="https://cdn.adventure-life.com/10/91/28/iStock-497947897/1300x820.webp" alt="Course Image 4">
+                </div>
+                <button class="add-to-cart-btn">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #95a5a6; color: white;">
+        <h2>Shop Our Products</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?auto=format&fit=crop&w=350" alt="Ethiopian Coffee">
+                <h3>Ethiopian Coffee</h3>
+                <p>Premium Yirgacheffe coffee beans, known for their floral notes and bright acidity. Sourced directly from Ethiopian farms for authentic flavor.</p>
+                <div class="price">€225.00 (per kg)</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/BNrxduiZVXA" title="Ethiopian Coffee Ceremony" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Ethiopia-landscape-3-1200x852.jpg" alt="Coffee Image 1">
+                    <img src="https://www.tboacademy.com/blog/wp-content/uploads/2024/08/Ethiopia-min.jpg" alt="Coffee Image 2">
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?auto=format&fit=crop&w=350" alt="Ethio Golden Barley">
+                <h3>Ethio Golden Barley</h3>
+                <p>High-quality barley grains, perfect for traditional Ethiopian brewing or cooking. Grown in the highlands for superior taste and nutrition.</p>
+                <div class="price">€25.00 (per kg)</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dv7C2EGJnmo" title="Ethiopian Farming" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://www.gokite.travel/wp-content/uploads/schema-and-structured-data-for-wp/10-Must-See-Places-to-Visit-in-Ethiopia-1200x900.webp" alt="Barley Image 1">
+                    <img src="https://absoluteethiopia.com/wp-content/uploads/2019/05/blue-nile-falls.jpg" alt="Barley Image 2">
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?auto=format&fit=crop&w=350" alt="Ethiopian Ox">
+                <h3>Ethiopian Ox</h3>
+                <p>Robust and healthy Borana ox, ideal for farming or cultural events. Bred in Ethiopia's pastoral regions for strength and reliability.</p>
+                <div class="price">€42,500.00</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2xW9mTStyhM" title="Ethiopian Livestock" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="additional-images">
+                    <img src="https://skyticket.com/guide/wp-content/uploads/2017/10/iStock-672077498.jpg" alt="Ox Image 1">
+                    <img src="https://cdn.adventure-life.com/10/91/28/iStock-497947897/1300x820.webp" alt="Ox Image 2">
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <h3>Item Added to Cart!</h3>
+            <p>Your selection has been successfully added to your shopping cart.</p>
+            <button id="closePopup">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script>
+        // Get all "Add to Cart" buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const closePopupButton = document.getElementById('closePopup');
+        
+        // Add click event to all "Add to Cart" buttons
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Show the popup
+                popupOverlay.classList.add('active');
+            });
+        });
+        
+        // Close popup when clicking the close button
+        closePopupButton.addEventListener('click', function() {
+            popupOverlay.classList.remove('active');
+        });
+        
+        // Close popup when clicking outside the popup
+        popupOverlay.addEventListener('click', function(event) {
+            if (event.target === popupOverlay) {
+                popupOverlay.classList.remove('active');
+            }
+        });
+        
+        // Close popup when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                popupOverlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

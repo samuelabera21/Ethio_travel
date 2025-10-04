@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More About Ethiopia - Ethio Travel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        header {
+            background: url('flaggs.jpg') no-repeat center center/cover;
+            height: 300px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-right: 15px;
+            padding: 10px 15px;
+            background-color: rgba(44, 62, 80, 0.7);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(44, 62, 80, 0.9);
+        }
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .card p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        .card .video-container {
+            margin: 15px 0;
+        }
+        .card .video-container iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            border: none;
+        }
+        .card .gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .card .gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .card .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .main-gallery {
+            max-width: 1200px;
+            margin: 40px auto;
+            cursor: pointer;
+            position: relative;
+        }
+        .main-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .main-gallery img:hover {
+            transform: scale(1.02);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 1.8em;
+            }
+            .card {
+                margin: 0 10px;
+            }
+            nav {
+                top: 10px;
+                left: 10px;
+            }
+            nav a {
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">⌫</a>
+        </nav>
+        <div class="hero-text">
+            <h1>Discover More About Ethiopia</h1>
+        </div>
+    </header>
+
+    <section class="section" style="background-color: #ecf0f1;">
+        <h2>Ethiopian Wisdom Quotes</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Unity in Diversity</h3>
+                <p>"When spider webs unite, they can tie up a lion." – Ethiopian Proverb</p>
+                <p>This quote reflects the strength found in community and collaboration, a core value in Ethiopian culture.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/qrRQKW2-HRY" title="Ethiopian Culture" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Ethiopia-landscape-3-1200x852.jpg" alt="Landscape 1">
+                    <img src="https://www.tboacademy.com/blog/wp-content/uploads/2024/08/Ethiopia-min.jpg" alt="Landscape 2">
+                </div>
+            </div>
+            <div class="card">
+                <h3>Patience and Perseverance</h3>
+                <p>"He who conceals his disease cannot expect to be cured." – Ethiopian Proverb</p>
+                <p>Encourages openness and resilience, highlighting the importance of addressing challenges head-on.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2xW9mTStyhM" title="Ethiopian Traditions" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery">
+                    <img src="https://www.gokite.travel/wp-content/uploads/schema-and-structured-data-for-wp/10-Must-See-Places-to-Visit-in-Ethiopia-1200x900.webp" alt="Landscape 3">
+                    <img src="https://absoluteethiopia.com/wp-content/uploads/2019/05/blue-nile-falls.jpg" alt="Landscape 4">
+                </div>
+            </div>
+            <div class="card">
+                <h3>Respect for Nature</h3>
+                <p>"The earth is a beehive; we all gather from its honey." – Ethiopian Proverb</p>
+                <p>Emphasizes the symbiotic relationship between people and the land, a principle in Ethiopian life.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dv7C2EGJnmo" title="Ethiopian Nature" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery">
+                    <img src="https://skyticket.com/guide/wp-content/uploads/2017/10/iStock-672077498.jpg" alt="Landscape 5">
+                    <img src="https://cdn.adventure-life.com/10/91/28/iStock-497947897/1300x820.webp" alt="Landscape 6">
+                </div>
+            </div>
+            <div class="card">
+                <h3>Knowledge and Wisdom</h3>
+                <p>"He who learns, teaches." – Ethiopian Proverb</p>
+                <p>Highlights the value of sharing knowledge, a tradition deeply rooted in Ethiopian education and storytelling.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/BNrxduiZVXA" title="Ethiopian Education" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery">
+                    <img src="e.jpg" alt="Landscape 7">
+                    <img src="ee.jpg" alt="Landscape 8">
+                </div>
+            </div>
+            <div class="card">
+                <h3>Hard Work and Reward</h3>
+                <p>"The hand that gives is the hand that gathers." – Ethiopian Proverb</p>
+                <p>Reflects the belief that generosity and effort lead to abundance, a guiding principle in Ethiopian society.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2xW9mTStyhM" title="Ethiopian Lifestyle" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery">
+                    <img src="eee.jpg" alt="Landscape 9">
+                    <img src="eeee.jpg" alt="Landscape 10">
+                </div>
+            </div>
+        </div>
+ <!-- <div class="card">
+                <h3>Hard Work and Reward</h3>
+                <p>"The hand that gives is the hand that gathers." – Ethiopian Proverb</p>
+                <p>Reflects the belief that generosity and effort lead to abundance, a guiding principle in Ethiopian society.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2xW9mTStyhM" title="Ethiopian Lifestyle" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery">
+                    <img src="ff.jpg" alt="Landscape 9">
+                    <img src="fffffffffff.jpg" alt="Landscape 10">
+                </div>
+            </div> -->
+        </div>
+
+
+
+
+    </section>
+
+    <section class="section">
+        <div class="main-gallery" onclick="openModal()">
+            <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Ethiopia-landscape-3-1200x852.jpg" alt="Main Gallery">
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img src="" alt="Gallery Image" id="modalImage">
+        </div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const galleryImages = [
+            "https://cdn1.matadornetwork.com/blogs/1/2021/01/Ethiopia-landscape-3-1200x852.jpg",
+            "https://www.tboacademy.com/blog/wp-content/uploads/2024/08/Ethiopia-min.jpg",
+            "https://www.gokite.travel/wp-content/uploads/schema-and-structured-data-for-wp/10-Must-See-Places-to-Visit-in-Ethiopia-1200x900.webp",
+            "https://absoluteethiopia.com/wp-content/uploads/2019/05/blue-nile-falls.jpg",
+            "https://skyticket.com/guide/wp-content/uploads/2017/10/iStock-672077498.jpg",
+            "https://cdn.adventure-life.com/10/91/28/iStock-497947897/1300x820.webp",
+            "https://www.ethiopianembassy.be/wp-content/uploads/2020/08/Ethiopia-Landscape.jpg",
+            "https://www.tourismethiopia.org/wp-content/uploads/2020/07/DSCF1880-1024x683.jpg",
+            "https://www.ethiopianembassy.org.uk/wp-content/uploads/2020/08/Ethiopia-Landscape-2.jpg",
+            "https://www.visitethiopia.travel/wp-content/uploads/2020/05/simien-mountains-1024x683.jpg"
+        ];
+
+        function openModal() {
+            currentImageIndex = 0;
+            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            document.getElementById('modal').style.display = 'flex';
+            document.addEventListener('keydown', handleKeyPress);
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'ArrowRight' && currentImageIndex < galleryImages.length - 1) {
+                currentImageIndex++;
+                document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            } else if (event.key === 'ArrowLeft' && currentImageIndex > 0) {
+                currentImageIndex--;
+                document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
